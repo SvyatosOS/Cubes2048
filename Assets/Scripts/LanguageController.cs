@@ -10,12 +10,12 @@ public class LanguageController : MonoBehaviour
 
         public static void SaveToFile(Language languageObject, string filePath)
         {
-            File.WriteAllText(filePath, JsonUtility.ToJson(languageObject));
+            File.WriteAllText(filePath, JsonUtility.ToJson(languageObject),encoding:System.Text.Encoding.UTF8);
         }
 
         public static Language LoadFromFile(string filePath)
         {
-            var json = File.ReadAllText(filePath);
+            var json = File.ReadAllText(filePath,encoding:System.Text.Encoding.UTF8);
             var language = JsonUtility.FromJson<Language>(json);
             return language;
         }
